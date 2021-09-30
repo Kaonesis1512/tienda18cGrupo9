@@ -5,8 +5,7 @@ public class ClientesDTO {
 	private String direccionCliente;
 	private String emailCliente;
 	private String nombreCliente;
-	private Integer telefonoCliente;
-	
+	private String telefonoCliente;
 	public Integer getCedulaCliente() {
 		return cedulaCliente;
 	}
@@ -31,13 +30,12 @@ public class ClientesDTO {
 	public void setNombreCliente(String nombreCliente) {
 		this.nombreCliente = nombreCliente;
 	}
-	public Integer getTelefonoCliente() {
+	public String getTelefonoCliente() {
 		return telefonoCliente;
 	}
-	public void setTelefonoCliente(Integer telefonoCliente) {
+	public void setTelefonoCliente(String telefonoCliente) {
 		this.telefonoCliente = telefonoCliente;
 	}
-	
 	
 
 }
