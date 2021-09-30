@@ -26,7 +26,7 @@ public class ClientesDAO {
 				clientes.setDireccionCliente(res.getString("direccion_cliente"));
 				clientes.setEmailCliente(res.getString("email_cliente"));
 				clientes.setNombreCliente(res.getString("nombre_cliente"));
-				clientes.setTelefonoCliente(Integer.parseInt(res.getString("telefono_cliente")));
+				clientes.setTelefonoCliente(res.getString("telefono_cliente"));
 				
 				miCliente.add(clientes);
 				}
@@ -48,7 +48,7 @@ public class ClientesDAO {
 			conex.desconectar();
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
-			JOptionPane.showMessageDialog(null, "No se pudo registrar el usuario");
+			JOptionPane.showMessageDialog(null, "No se pudo registrar el cliente");
 		}
 	}
 	public ArrayList <ClientesDTO> consultarClientes(int documento){
@@ -57,14 +57,14 @@ public class ClientesDAO {
 		try {
 			PreparedStatement consulta=conex.getConnection().prepareStatement("SELECT * FROM clientes WHERE cedula_cliente=?");
 			consulta.setInt(1, documento);
-			ResultSet res=consulta.executeQuery();
+			ResultSet res = consulta.executeQuery();
 			if(res.next()) {
 				ClientesDTO clientes=new ClientesDTO();
 				clientes.setCedulaCliente(Integer.parseInt(res.getString("cedula_cliente")));
 				clientes.setDireccionCliente(res.getString("direccion_cliente"));
 				clientes.setEmailCliente(res.getString("email_cliente"));
 				clientes.setNombreCliente(res.getString("nombre_cliente"));
-				clientes.setTelefonoCliente(Integer.parseInt(res.getString("telefono_cliente")));
+				clientes.setTelefonoCliente(res.getString("telefono_cliente"));
 				
 				miCliente.add(clientes);
 			}
